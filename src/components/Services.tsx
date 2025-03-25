@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Facebook, Instagram } from 'lucide-react';
 
 // Service data
 const servicesData = [
@@ -18,6 +17,13 @@ const servicesData = [
     description: 'Custom landscape design services to transform your outdoor space into a beautiful and functional environment.',
     image: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86',
     features: ['Custom design consultations', 'Plant selection expertise', 'Hardscape integration', '3D visualization', 'Sustainable planning']
+  },
+  {
+    id: 3,
+    title: 'Property Maintenance',
+    description: 'Complete property maintenance to keep your residential or commercial space looking professional and well-kept.',
+    image: 'https://images.unsplash.com/photo-1557429287-b2e26467fc2b',
+    features: ['Shrub trimming', 'Bed maintenance', 'Mulch installation', 'Weed control', 'Seasonal clean-ups']
   }
 ];
 
