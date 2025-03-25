@@ -7,23 +7,23 @@ const servicesData = [
   {
     id: 1,
     title: 'Lawn Maintenance',
-    description: 'Regular lawn maintenance including mowing, trimming, and blowing to keep your urban lawn looking its best year-round.',
-    image: 'https://images.unsplash.com/photo-1658521352005-07c0477198dd',
-    features: ['Weekly or bi-weekly mowing', 'Edge trimming', 'Leaf blowing', 'Debris removal', 'Seasonal adjustments']
+    description: 'Regular lawn maintenance including mowing, edging, and trimming to keep your lawn looking its best year-round.',
+    image: 'https://images.unsplash.com/photo-1615729947596-a598e5de0ab3',
+    features: ['Weekly or bi-weekly service', 'Precision cutting techniques', 'Edge trimming', 'Debris removal', 'Seasonal adjustments']
   },
   {
     id: 2,
     title: 'Landscape Design',
-    description: 'Custom landscape design services to transform your urban outdoor space into a beautiful and functional environment.',
-    image: 'https://images.unsplash.com/photo-1598901847919-b95dd0fabbb6',
+    description: 'Custom landscape design services to transform your outdoor space into a beautiful and functional environment.',
+    image: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86',
     features: ['Custom design consultations', 'Plant selection expertise', 'Hardscape integration', '3D visualization', 'Sustainable planning']
   },
   {
     id: 3,
-    title: 'Property Maintenance',
-    description: 'Complete property maintenance to keep your residential or commercial space looking professional and well-kept.',
-    image: 'https://images.unsplash.com/photo-1556713304-e5ac7eca7dc5',
-    features: ['Shrub trimming', 'Bed maintenance', 'Mulch installation', 'Weed control', 'Seasonal clean-ups']
+    title: 'Irrigation Systems',
+    description: 'Installation and maintenance of efficient irrigation systems to keep your landscape healthy and water bills low.',
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
+    features: ['Smart controller installation', 'Drip irrigation', 'Sprinkler system design', 'Water conservation solutions', 'Seasonal maintenance']
   }
 ];
 
@@ -42,8 +42,8 @@ const Services = () => {
             Expert Lawn Care Solutions
           </h2>
           <p className="max-w-3xl mx-auto text-lg text-foreground/80">
-            We offer professional lawn care and landscaping services 
-            tailored to meet the unique needs of your urban property.
+            We offer a comprehensive range of professional lawn care and landscaping services 
+            tailored to meet the unique needs of your property.
           </p>
         </div>
 
