@@ -1,7 +1,6 @@
-
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
@@ -118,17 +117,24 @@ const Contact = () => {
               <div className="mt-10">
                 <h4 className="font-semibold mb-4">Follow Us</h4>
                 <div className="flex space-x-4">
-                  {['facebook', 'twitter', 'instagram', 'linkedin'].map((social) => (
-                    <a
-                      key={social}
-                      href={`#${social}`}
-                      className="h-10 w-10 rounded-full bg-green/10 flex items-center justify-center text-green hover:bg-green hover:text-white transition-colors duration-300"
-                      aria-label={`Visit our ${social} page`}
-                    >
-                      <span className="sr-only">{social}</span>
-                      <i className={`fab fa-${social}`}></i>
-                    </a>
-                  ))}
+                  <a
+                    href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="h-10 w-10 rounded-full bg-green/10 flex items-center justify-center text-green hover:bg-green hover:text-white transition-colors duration-300"
+                    aria-label="Visit our Facebook page"
+                  >
+                    <Facebook className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="h-10 w-10 rounded-full bg-green/10 flex items-center justify-center text-green hover:bg-green hover:text-white transition-colors duration-300"
+                    aria-label="Visit our Instagram page"
+                  >
+                    <Instagram className="h-5 w-5" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -217,7 +223,6 @@ const Contact = () => {
                     <option value="" disabled>Select a service</option>
                     <option value="lawn-maintenance">Lawn Maintenance</option>
                     <option value="landscape-design">Landscape Design</option>
-                    <option value="irrigation">Irrigation Systems</option>
                     <option value="other">Other Services</option>
                   </select>
                 </div>

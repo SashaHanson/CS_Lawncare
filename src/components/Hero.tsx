@@ -12,7 +12,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/20 z-10"></div>
         <img 
-          src="https://images.unsplash.com/photo-1587056590606-963d1b337bad" 
+          src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e" 
           alt="Well-maintained urban lawn" 
           className="w-full h-full object-cover object-center"
           loading="eager"
