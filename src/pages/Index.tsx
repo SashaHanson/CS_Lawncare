@@ -11,7 +11,13 @@ import Footer from '@/components/Footer';
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <h1>CS Lawncare is live!</h1>
+      <Navbar />
+      <Hero />
+      <About />
+      <Services />
+      <Testimonials />
+      <Contact />
+      <Footer />
     </div>
   );
 };
