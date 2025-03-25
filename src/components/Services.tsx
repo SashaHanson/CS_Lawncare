@@ -9,7 +9,7 @@ const servicesData = [
     title: 'Lawn Maintenance',
     description: 'Regular lawn maintenance including mowing, edging, and trimming to keep your lawn looking its best year-round.',
     image: 'https://images.unsplash.com/photo-1615729947596-a598e5de0ab3',
-    features: ['Weekly or bi-weekly service', 'Precision cutting techniques', 'Edge trimming', 'Debris removal', 'Seasonal adjustments']
+    features: ['Weekly or bi-weekly mowing', 'Edge trimming', 'Leaf blowing', 'Debris removal', 'Seasonal adjustments']
   },
   {
     id: 2,
@@ -20,10 +20,10 @@ const servicesData = [
   },
   {
     id: 3,
-    title: 'Irrigation Systems',
-    description: 'Installation and maintenance of efficient irrigation systems to keep your landscape healthy and water bills low.',
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
-    features: ['Smart controller installation', 'Drip irrigation', 'Sprinkler system design', 'Water conservation solutions', 'Seasonal maintenance']
+    title: 'Property Maintenance',
+    description: 'Complete property maintenance to keep your residential or commercial space looking professional and well-kept.',
+    image: 'https://images.unsplash.com/photo-1557429287-b2e26467fc2b',
+    features: ['Shrub trimming', 'Bed maintenance', 'Mulch installation', 'Weed control', 'Seasonal clean-ups']
   }
 ];
 
@@ -42,7 +42,7 @@ const Services = () => {
             Expert Lawn Care Solutions
           </h2>
           <p className="max-w-3xl mx-auto text-lg text-foreground/80">
-            We offer a comprehensive range of professional lawn care and landscaping services 
+            We offer professional lawn care and landscaping services 
             tailored to meet the unique needs of your property.
           </p>
         </div>
