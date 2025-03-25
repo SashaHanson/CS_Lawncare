@@ -72,10 +72,10 @@ const Footer = () => {
                 {[
                   'Lawn Maintenance',
                   'Landscape Design',
-                  'Property Maintenance',
+                  'Mowing & Trimming',
                   'Garden Care',
                   'Seasonal Clean-up',
-                  'Hardscaping'
+                  'Leaf Blowing'
                 ].map((service) => (
                   <li key={service}>
                     <a 

@@ -1,29 +1,23 @@
 
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Facebook, Instagram } from 'lucide-react';
 
 // Service data
 const servicesData = [
   {
     id: 1,
     title: 'Lawn Maintenance',
-    description: 'Regular lawn maintenance including mowing, trimming, and blowing to keep your urban lawn looking its best year-round.',
-    image: 'https://images.unsplash.com/photo-1658521352005-07c0477198dd',
+    description: 'Regular lawn maintenance including mowing, edging, and trimming to keep your lawn looking its best year-round.',
+    image: 'https://images.unsplash.com/photo-1615729947596-a598e5de0ab3',
     features: ['Weekly or bi-weekly mowing', 'Edge trimming', 'Leaf blowing', 'Debris removal', 'Seasonal adjustments']
   },
   {
     id: 2,
     title: 'Landscape Design',
-    description: 'Custom landscape design services to transform your urban outdoor space into a beautiful and functional environment.',
-    image: 'https://images.unsplash.com/photo-1598901847919-b95dd0fabbb6',
+    description: 'Custom landscape design services to transform your outdoor space into a beautiful and functional environment.',
+    image: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86',
     features: ['Custom design consultations', 'Plant selection expertise', 'Hardscape integration', '3D visualization', 'Sustainable planning']
-  },
-  {
-    id: 3,
-    title: 'Property Maintenance',
-    description: 'Complete property maintenance to keep your residential or commercial space looking professional and well-kept.',
-    image: 'https://images.unsplash.com/photo-1556713304-e5ac7eca7dc5',
-    features: ['Shrub trimming', 'Bed maintenance', 'Mulch installation', 'Weed control', 'Seasonal clean-ups']
   }
 ];
 
@@ -43,7 +37,7 @@ const Services = () => {
           </h2>
           <p className="max-w-3xl mx-auto text-lg text-foreground/80">
             We offer professional lawn care and landscaping services 
-            tailored to meet the unique needs of your urban property.
+            tailored to meet the unique needs of your property.
           </p>
         </div>
 
