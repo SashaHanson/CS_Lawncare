@@ -5,14 +5,14 @@ import { cn } from '@/lib/utils';
 const testimonials = [
   {
     id: 1,
-    text: "VerdeScape transformed our neglected backyard into a stunning retreat. Their attention to detail and lawn expertise is impressive!",
+    text: "CS Lawncare transformed our neglected backyard into a stunning retreat. Their attention to detail and lawn expertise is impressive!",
     author: "Thomas Anderson",
     position: "Homeowner",
     rating: 5
   },
   {
     id: 2,
-    text: "We've tried several lawn care companies, but none compare to the quality and reliability of VerdeScape. Our property has never looked better.",
+    text: "We've tried several lawn care companies, but none compare to the quality and reliability of CS Lawncare. Our property has never looked better.",
     author: "Sarah Johnson",
     position: "Property Manager",
     rating: 5
