@@ -20,7 +20,7 @@ const Footer = () => {
             {/* Company Info */}
             <div className="lg:col-span-1">
               <Link to="/" className="text-white font-serif text-2xl font-bold tracking-tight">
-                VerdeScape
+                CS Lawncare
               </Link>
               <p className="mt-4 text-white/80 max-w-xs">
                 Professional lawn care and landscaping services delivering beautiful, sustainable outdoor spaces.
@@ -104,7 +104,7 @@ const Footer = () => {
                 </li>
                 <li className="flex items-center">
                   <Mail className="h-5 w-5 text-green-light mr-3" />
-                  <span className="text-white/80">info@verdescapelawns.com</span>
+                  <span className="text-white/80">info@cslawncare.com</span>
                 </li>
               </ul>
             </div>
@@ -116,7 +116,7 @@ const Footer = () => {
       <div className="border-t border-white/10 px-6 md:px-12 py-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <div className="text-white/70 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} VerdeScape. All rights reserved.
+            © {new Date().getFullYear()} CS Lawncare. All rights reserved.
           </div>
           <div className="flex items-center">
             <button 
