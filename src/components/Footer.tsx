@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, ArrowUp, Facebook, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
 
 const Footer = () => {
   // Function to scroll to top smoothly
@@ -26,24 +26,17 @@ const Footer = () => {
                 Professional lawn care and landscaping services delivering beautiful, sustainable outdoor spaces.
               </p>
               <div className="mt-6 flex space-x-4">
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-green-dark transition-colors duration-300"
-                  aria-label="Visit our Facebook page"
-                >
-                  <Facebook className="h-5 w-5" />
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-green-dark transition-colors duration-300"
-                  aria-label="Visit our Instagram page"
-                >
-                  <Instagram className="h-5 w-5" />
-                </a>
+                {['facebook', 'twitter', 'instagram', 'linkedin'].map((social) => (
+                  <a
+                    key={social}
+                    href={`#${social}`}
+                    className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-green-dark transition-colors duration-300"
+                    aria-label={`Visit our ${social} page`}
+                  >
+                    <span className="sr-only">{social}</span>
+                    <i className={`fab fa-${social}`}></i>
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -72,10 +65,10 @@ const Footer = () => {
                 {[
                   'Lawn Maintenance',
                   'Landscape Design',
-                  'Mowing & Trimming',
+                  'Irrigation Systems',
                   'Garden Care',
                   'Seasonal Clean-up',
-                  'Leaf Blowing'
+                  'Hardscaping'
                 ].map((service) => (
                   <li key={service}>
                     <a 
