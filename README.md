@@ -1,8 +1,13 @@
-# Welcome to your Lovable project
+
+# Welcome to your Lovable project - CS Lawncare
 
 ## Project info
 
 **URL**: https://lovable.dev/projects/bb39e3b5-1445-49da-96bb-1fc44ca4fa28
+
+## Deployment
+
+This project is configured for GitHub Pages deployment. The site is available at: https://sashahanson.github.io/cs-lawncare/
 
 ## How can I edit this code:
 
@@ -52,7 +57,7 @@ npm run dev
 
 ## What technologies are used for this project?
 
-This project is built with .
+This project is built with:
 
 - Vite
 - TypeScript
@@ -62,8 +67,4 @@ This project is built with .
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/bb39e3b5-1445-49da-96bb-1fc44ca4fa28) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+The project is configured to automatically deploy to GitHub Pages when changes are pushed to the main branch.
