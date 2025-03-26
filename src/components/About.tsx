@@ -16,7 +16,7 @@ const About = () => {
             </h2>
             
             <p className="text-foreground/80 text-lg mb-6 leading-relaxed">
-              At VerdeScape, we're passionate about transforming ordinary outdoor spaces into extraordinary landscapes that inspire, impress, and endure.
+              At CS Lawncare, we're passionate about transforming ordinary outdoor spaces into extraordinary landscapes that inspire, impress, and endure.
             </p>
             
             <p className="text-foreground/80 mb-8 leading-relaxed">
