@@ -41,7 +41,7 @@ const Navbar = () => {
           to="/" 
           className="text-green font-serif text-2xl md:text-3xl font-bold tracking-tight"
         >
-          VerdeScape
+          CS Lawncare
         </Link>
 
         {/* Desktop Navigation */}
