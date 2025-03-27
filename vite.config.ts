@@ -6,7 +6,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/cs-lawncare/',
+  // Remove the base path - this is causing the 404 errors
+  // base: '/cs-lawncare/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
