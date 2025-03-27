@@ -6,15 +6,15 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Remove the base path - this is causing the 404 errors
-  // base: '/cs-lawncare/',
+  // GitHub Pages configuration
+  base: './', // Use relative paths instead of absolute
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        // Ensure proper asset paths
+        // Ensure proper asset paths for GitHub Pages
         assetFileNames: 'assets/[name].[hash].[ext]',
         chunkFileNames: 'assets/[name].[hash].js',
         entryFileNames: 'assets/[name].[hash].js',
