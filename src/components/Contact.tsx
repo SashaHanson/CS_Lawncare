@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Mail, Phone, MapPin, Facebook, Instagram } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import ServiceAreaMap from './ServiceAreaMap';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -74,6 +75,17 @@ const Contact = () => {
           </p>
         </div>
 
+        {/* Service Area Map */}
+        <div className="mb-16 animate-fade-in">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground">Our Service Area</h3>
+            <p className="max-w-2xl mx-auto text-foreground/80 mt-2">
+              CS Lawncare proudly serves the Oakville, Ontario area. Check if your property is within our service boundaries.
+            </p>
+          </div>
+          <ServiceAreaMap />
+        </div>
+
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Contact Information */}
           <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
@@ -109,8 +121,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-foreground">Location</h4>
-                    <p className="text-foreground/70">123 Green Street, Meadowville</p>
-                    <p className="text-sm text-foreground/60 mt-1">Serving all surrounding areas</p>
+                    <p className="text-foreground/70">123 Green Street, Oakville, Ontario</p>
+                    <p className="text-sm text-foreground/60 mt-1">Serving all of Oakville</p>
                   </div>
                 </div>
               </div>
