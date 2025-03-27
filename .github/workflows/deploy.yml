@@ -34,9 +34,25 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
+        run: |
+          # Create artifact directory
+          mkdir -p /tmp/artifact
+          
+          # Copy build output to artifact directory
+          cp -r ./dist/* /tmp/artifact/
+          
+          # Create artifact
+          tar -czf artifact.tar.gz -C /tmp/artifact .
+          
+          # Upload artifact
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/${{ github.repository }}/pages/artifacts \
+            -F "artifact=@artifact.tar.gz"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
     environment:
@@ -45,6 +61,20 @@ jobs:
     runs-on: ubuntu-22.04
     needs: build
     steps:
+      - name: Setup GitHub CLI
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        run: |
+          DEPLOYMENT_URL=$(gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/${{ github.repository }}/pages/deployments \
+            | jq -r '.html_url')
+          
+          echo "page_url=$DEPLOYMENT_URL" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
