@@ -73,6 +73,6 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## How to deploy this project:
 
 The project is configured to automatically deploy to GitHub Pages when changes are pushed to the main branch.
