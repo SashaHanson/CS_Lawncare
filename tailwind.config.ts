@@ -63,11 +63,11 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Updated green colors to be more vibrant
+				// Updated green colors to be more vibrant like in the reference images
 				green: {
-					light: '#8FB996', // More vibrant light green
-					DEFAULT: '#4A7C59', // More vibrant medium green
-					dark: '#2D4330'  // More vibrant dark green
+					light: '#4ADE80', // Vibrant light green
+					DEFAULT: '#16A34A', // Vibrant medium green
+					dark: '#166534'  // Deep forest green
 				},
 				cream: '#F8F4E3',
 				soil: '#5E503F'

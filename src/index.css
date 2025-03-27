@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,7 +16,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 130 15% 20%;
 
-    --primary: 140 35% 40%;
+    /* Updated to more vibrant green */
+    --primary: 142 70% 35%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 130 5% 96%;
@@ -32,7 +34,8 @@
 
     --border: 130 10% 90%;
     --input: 130 10% 90%;
-    --ring: 140 40% 45%;
+    /* Updated to more vibrant green */
+    --ring: 142 70% 40%;
 
     --radius: 0.5rem;
 
