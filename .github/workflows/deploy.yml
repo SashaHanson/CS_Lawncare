@@ -34,15 +34,9 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
-        run: |
-          # Create artifact directory
-          mkdir -p ./_site
-          # Copy build output to artifact directory
-          cp -r ./dist/* ./_site
-          # Use GitHub CLI to create and upload artifact
-          gh artifact upload _site --dir=./_site
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
 
   deploy:
     environment:
@@ -53,11 +47,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        run: |
-          # Use GitHub CLI to deploy to Pages
-          gh pages deploy --dir=_site --source=artifact:_site
-          # Get the deployment URL
-          DEPLOY_URL=$(gh pages status --json url -q .url)
-          echo "page_url=$DEPLOY_URL" >> $GITHUB_OUTPUT
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/deploy-pages@v4

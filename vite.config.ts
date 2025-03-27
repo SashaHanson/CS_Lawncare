@@ -8,13 +8,9 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   base: '/cs-lawncare/',
   build: {
+    outDir: 'dist',
     assetsDir: 'assets',
-    // Ensure proper relative paths in the build output
-    rollupOptions: {
-      output: {
-        manualChunks: undefined,
-      }
-    }
+    emptyOutDir: true,
   },
   server: {
     host: "::",
