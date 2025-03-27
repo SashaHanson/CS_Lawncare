@@ -66,7 +66,7 @@ const About = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="img-hover-zoom rounded-2xl overflow-hidden shadow-lg h-52 bg-green-light p-6 flex items-center justify-center">
+              <div className="img-hover-zoom rounded-2xl overflow-hidden shadow-lg h-52 bg-green-dark p-6 flex items-center justify-center">
                 <div className="text-center text-white">
                   <h3 className="text-xl md:text-2xl font-bold mb-2">Expertise</h3>
                   <p className="text-white/90">Professional lawn care specialists</p>
