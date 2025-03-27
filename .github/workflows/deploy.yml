@@ -32,9 +32,6 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Workaround for artifact error
-        uses: actions/upload-artifact@e165fad56bc75b540449e92b4886f360f7a0f02
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
