@@ -1,5 +1,5 @@
 
-# Welcome to your Lovable project - CS Lawncare
+# CS Lawncare
 
 ## Project info
 
@@ -8,6 +8,14 @@
 ## Deployment
 
 This project is configured for GitHub Pages deployment. The site is available at: https://sashahanson.github.io/cs-lawncare/
+
+### How to deploy to GitHub Pages:
+
+1. Push your changes to the main branch of your repository
+2. Go to your repository's Settings > Pages
+3. Under "Source," select "GitHub Actions" 
+4. The GitHub Actions workflow will automatically build and deploy your site
+5. After deployment completes, your site will be available at `https://[your-username].github.io/cs-lawncare/`
 
 ## How can I edit this code:
 
