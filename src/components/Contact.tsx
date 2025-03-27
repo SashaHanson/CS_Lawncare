@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Mail, Phone, MapPin, Facebook, Instagram } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import ServiceAreaMap from './ServiceAreaMap';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -73,17 +72,6 @@ const Contact = () => {
           <p className="max-w-2xl mx-auto text-lg text-foreground/80">
             Ready to transform your outdoor space? Get in touch for a personalized lawn care plan tailored to your needs.
           </p>
-        </div>
-
-        {/* Service Area Map */}
-        <div className="mb-16 animate-fade-in">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground">Our Service Area</h3>
-            <p className="max-w-2xl mx-auto text-foreground/80 mt-2">
-              CS Lawncare proudly serves the Oakville, Ontario area. Check if your property is within our service boundaries.
-            </p>
-          </div>
-          <ServiceAreaMap />
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
