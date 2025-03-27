@@ -1,5 +1,4 @@
-
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Mail, Phone, MapPin, Facebook, Instagram } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
