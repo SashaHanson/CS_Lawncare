@@ -63,11 +63,11 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Modified custom colors for lawn care theme with less saturation
+				// Updated green colors to be more vibrant
 				green: {
-					light: '#A5C6AD', // Less vibrant version of #8FB996
-					DEFAULT: '#5D8F6C', // Less vibrant version of #4A7C59
-					dark: '#3A5A40'  // Less vibrant version of #2D4330
+					light: '#8FB996', // More vibrant light green
+					DEFAULT: '#4A7C59', // More vibrant medium green
+					dark: '#2D4330'  // More vibrant dark green
 				},
 				cream: '#F8F4E3',
 				soil: '#5E503F'
