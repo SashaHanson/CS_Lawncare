@@ -6,7 +6,16 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/cs-lawncare/', // Set the base to the repository name
+  base: '/cs-lawncare/',
+  build: {
+    assetsDir: 'assets',
+    // Ensure proper relative paths in the build output
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      }
+    }
+  },
   server: {
     host: "::",
     port: 8080,
