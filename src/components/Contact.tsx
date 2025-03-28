@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, Facebook, Instagram } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -135,7 +136,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg">Our Location</h4>
-                    <p className="text-gray-600">123 Green Street, Meadowville, CA 90210</p>
+                    <p className="text-gray-600">Oakville, Ontario, L6H 3A5</p>
                   </div>
                 </div>
                 
@@ -145,7 +146,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg">Phone Number</h4>
-                    <p className="text-gray-600">(555) 123-4567</p>
+                    <p className="text-gray-600">289-681-1919</p>
                   </div>
                 </div>
                 
@@ -155,7 +156,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg">Email Address</h4>
-                    <p className="text-gray-600">info@verdescapelawns.com</p>
+                    <p className="text-gray-600">info@cslawncare.ca</p>
                   </div>
                 </div>
                 
@@ -169,7 +170,9 @@ const Contact = () => {
                       <Facebook size={20} />
                     </a>
                     <a
-                      href="#"
+                      href="https://www.instagram.com/c.s_landscaping_/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="bg-green-light/20 h-10 w-10 rounded-full flex items-center justify-center text-green transition-colors duration-300 hover:bg-green hover:text-white"
                     >
                       <Instagram size={20} />

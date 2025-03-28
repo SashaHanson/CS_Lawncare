@@ -36,7 +36,7 @@ const Footer = () => {
                   <Facebook className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/c.s_landscaping_/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-green-dark transition-colors duration-300"
@@ -96,15 +96,15 @@ const Footer = () => {
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <MapPin className="h-5 w-5 text-green-light mr-3 mt-0.5" />
-                  <span className="text-white/80">123 Green Street, Meadowville, CA 90210</span>
+                  <span className="text-white/80">Oakville, Ontario, L6H 3A5</span>
                 </li>
                 <li className="flex items-center">
                   <Phone className="h-5 w-5 text-green-light mr-3" />
-                  <span className="text-white/80">(555) 123-4567</span>
+                  <span className="text-white/80">289-681-1919</span>
                 </li>
                 <li className="flex items-center">
                   <Mail className="h-5 w-5 text-green-light mr-3" />
-                  <span className="text-white/80">info@cslawncare.com</span>
+                  <span className="text-white/80">info@cslawncare.ca</span>
                 </li>
               </ul>
             </div>
