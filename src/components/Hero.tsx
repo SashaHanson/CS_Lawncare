@@ -12,8 +12,8 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/20 z-10"></div>
         <img 
-          src="https://images.unsplash.com/photo-1615729947596-a598e5de0ab3" 
-          alt="Beautiful lawn with freshly cut grass" 
+          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" 
+          alt="Beautiful landscape with lawn" 
           className="w-full h-full object-cover object-center"
           loading="eager"
         />

@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Facebook, Instagram } from 'lucide-react';
 
 // Service data
 const servicesData = [
@@ -8,21 +9,21 @@ const servicesData = [
     id: 1,
     title: 'Lawn Maintenance',
     description: 'Regular lawn maintenance including mowing, edging, trimming, and blowing to keep your lawn looking its best year-round.',
-    image: 'https://images.unsplash.com/photo-1628624747186-a941c476b7ef',
+    image: 'https://images.unsplash.com/photo-1615729947596-a598e5de0ab3',
     features: ['Weekly or bi-weekly service', 'Precision cutting techniques', 'Edge trimming', 'Debris removal and blowing', 'Seasonal adjustments']
   },
   {
     id: 2,
     title: 'Landscape Design',
     description: 'Custom landscape design services to transform your outdoor space into a beautiful and functional environment.',
-    image: 'https://images.unsplash.com/photo-1600240644455-3edc55c375fe',
+    image: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86',
     features: ['Custom design consultations', 'Plant selection expertise', 'Hardscape integration', '3D visualization', 'Sustainable planning']
   },
   {
     id: 3,
     title: 'Property Maintenance',
     description: 'Complete property maintenance to keep your residential or commercial space looking professional and well-kept.',
-    image: 'https://images.unsplash.com/photo-1592194996308-7b43878e84a6',
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
     features: ['Shrub trimming', 'Bed maintenance', 'Mulch installation', 'Weed control', 'Seasonal clean-ups']
   }
 ];
