@@ -29,7 +29,7 @@ const Contact = () => {
 
   // Initialize EmailJS
   useEffect(() => {
-    emailjs.init("YOUR_EMAILJS_USER_ID");
+    // Note: You do NOT need to call emailjs.init() when using emailjs.send() with a service ID and template ID
     setEmailJSInitialized(true);
   }, []);
 
@@ -58,43 +58,56 @@ const Contact = () => {
     setFormState('submitting');
     
     try {
+      // Get service name in readable format
+      const serviceFormatted = 
+        formData.service === 'lawn-maintenance' ? 'Lawn Maintenance' :
+        formData.service === 'landscape-design' ? 'Landscape Design' :
+        formData.service === 'irrigation' ? 'Irrigation Systems' : 'Other Services';
+
       // Prepare template parameters
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
-        service: formData.service === 'lawn-maintenance' ? 'Lawn Maintenance' :
-                formData.service === 'landscape-design' ? 'Landscape Design' :
-                formData.service === 'irrigation' ? 'Irrigation Systems' : 'Other Services',
+        service: serviceFormatted,
         message: formData.message,
-        reply_to: 'info@cslawncare.ca',
+        reply_to: formData.email, // Set reply-to as the customer's email
         to_email: 'cslawncare.ca@gmail.com'
       };
 
+      console.log("Sending email with params:", templateParams);
+
       // Send email using EmailJS
-      await emailjs.send(
-        'YOUR_EMAILJS_SERVICE_ID', 
-        'YOUR_EMAILJS_TEMPLATE_ID',
-        templateParams
+      const response = await emailjs.send(
+        'service_zqh8yoe',        // Replace with your actual EmailJS service ID
+        'template_8j1i1of',       // Replace with your actual EmailJS template ID
+        templateParams,
+        'SMFwSQ88VoQKPtpYR'       // Replace with your actual EmailJS public key
       );
 
-      setFormState('success');
-      toast({
-        title: "Request received!",
-        description: "We'll contact you shortly to discuss your lawn care needs.",
-      });
+      console.log("EmailJS response:", response);
       
-      // Reset form after successful submission
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: '',
-      });
-      
-      // Reset form state after a delay
-      setTimeout(() => setFormState('idle'), 3000);
+      if (response.status === 200) {
+        setFormState('success');
+        toast({
+          title: "Request received!",
+          description: "We'll contact you shortly to discuss your lawn care needs.",
+        });
+        
+        // Reset form after successful submission
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: '',
+        });
+        
+        // Reset form state after a delay
+        setTimeout(() => setFormState('idle'), 3000);
+      } else {
+        throw new Error('Email sending failed');
+      }
     } catch (error) {
       console.error('Error sending email:', error);
       setFormState('idle');
