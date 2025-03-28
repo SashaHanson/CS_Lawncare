@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, Facebook, Instagram } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -74,10 +75,11 @@ const Contact = () => {
         from_name: formData.name,
         from_email: formData.email,
         reply_to: formData.email,
+        to_email: "info@cslawncare.ca", // Add the destination email
         phone: formData.phone,
         service: serviceFormatted,
         message: formData.message || "No message provided",
-        to_name: "CS Lawn Care Team" // Adding this if your template expects it
+        to_name: "CS Lawn Care Team"
       };
       
       console.log("Template parameters:", templateParams);
