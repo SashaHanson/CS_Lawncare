@@ -29,7 +29,8 @@ const Contact = () => {
 
   // Initialize EmailJS
   useEffect(() => {
-    // Note: You do NOT need to call emailjs.init() when using emailjs.send() with a service ID and template ID
+    // Initialize EmailJS with your public key
+    emailjs.init("SMFwSQ88VoQKPtpYR");
     setEmailJSInitialized(true);
   }, []);
 
@@ -71,18 +72,18 @@ const Contact = () => {
         phone: formData.phone,
         service: serviceFormatted,
         message: formData.message,
-        reply_to: formData.email, // Set reply-to as the customer's email
-        to_email: 'cslawncare.ca@gmail.com'
+        reply_to: formData.email,
+        to_name: "CS Lawn Care",
       };
 
       console.log("Sending email with params:", templateParams);
 
-      // Send email using EmailJS
+      // Send email using EmailJS - using the alternative method
       const response = await emailjs.send(
-        'service_zqh8yoe',        // Replace with your actual EmailJS service ID
-        'template_8j1i1of',       // Replace with your actual EmailJS template ID
+        'service_zqh8yoe',        // EmailJS service ID
+        'template_8j1i1of',       // EmailJS template ID
         templateParams,
-        'SMFwSQ88VoQKPtpYR'       // Replace with your actual EmailJS public key
+        'SMFwSQ88VoQKPtpYR'       // EmailJS public key
       );
 
       console.log("EmailJS response:", response);
