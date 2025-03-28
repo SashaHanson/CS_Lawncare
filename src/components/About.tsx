@@ -61,8 +61,8 @@ const About = () => {
             <div className="space-y-4">
               <div className="img-hover-zoom rounded-2xl overflow-hidden shadow-lg h-64">
                 <img 
-                  src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86" 
-                  alt="Professional landscaping" 
+                  src="https://images.unsplash.com/photo-1592420620845-803ebc000882" 
+                  alt="Professional lawn mowing" 
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -83,8 +83,8 @@ const About = () => {
               </div>
               <div className="img-hover-zoom rounded-2xl overflow-hidden shadow-lg h-64">
                 <img 
-                  src="https://images.unsplash.com/photo-1615729947596-a598e5de0ab3" 
-                  alt="Beautiful lawn" 
+                  src="https://images.unsplash.com/photo-1589923188900-85dae523342b" 
+                  alt="Lawn mower on green grass" 
                   className="w-full h-full object-cover"
                 />
               </div>
