@@ -66,11 +66,11 @@ const ContactForm = () => {
         from_name: formData.name,
         from_email: formData.email,
         reply_to: formData.email,
-        to_email: "info@cslawncare.ca", // Add the destination email
+        to_name: "CS Lawn Care Team",
+        to_email: "info@cslawncare.ca", // Explicitly set destination email
         phone: formData.phone,
         service: serviceFormatted,
         message: formData.message || "No message provided",
-        to_name: "CS Lawn Care Team"
       };
       
       console.log("Template parameters:", templateParams);
