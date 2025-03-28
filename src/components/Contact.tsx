@@ -68,29 +68,48 @@ const Contact = () => {
         formData.service === 'landscape-design' ? 'Landscape Design' :
         formData.service === 'irrigation' ? 'Irrigation Systems' : 'Other Services';
 
-      // Prepare template parameters - simplified to match template parameters exactly
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        service: serviceFormatted,
-        message: formData.message || "No message provided",
-        reply_to: formData.email,
-      };
-
-      console.log("Sending email with params:", templateParams);
+      // Construct a form-like object manually since sendForm expects actual form elements
+      const formElement = e.target as HTMLFormElement;
       
-      // Check if EmailJS is initialized
-      if (!emailJSInitialized) {
-        console.warn("EmailJS not initialized yet, initializing now");
-        emailjs.init("SMFwSQ88VoQKPtpYR");
+      // Make sure form elements have name attributes that match the template variables
+      const nameInput = formElement.querySelector('input[name="name"]') as HTMLInputElement;
+      const emailInput = formElement.querySelector('input[name="email"]') as HTMLInputElement;
+      const phoneInput = formElement.querySelector('input[name="phone"]') as HTMLInputElement;
+      const messageTextarea = formElement.querySelector('textarea[name="message"]') as HTMLTextAreaElement;
+      
+      // Set form values to match template variables
+      if (nameInput) nameInput.setAttribute('name', 'from_name');
+      if (emailInput) {
+        emailInput.setAttribute('name', 'from_email');
+        emailInput.setAttribute('name', 'reply_to');
       }
+      if (messageTextarea) messageTextarea.setAttribute('name', 'message');
+      
+      // Add a hidden field for service since select doesn't work well with EmailJS
+      let serviceInput = formElement.querySelector('input[name="service"]') as HTMLInputElement;
+      if (!serviceInput) {
+        serviceInput = document.createElement('input');
+        serviceInput.type = 'hidden';
+        serviceInput.name = 'service';
+        formElement.appendChild(serviceInput);
+      }
+      serviceInput.value = serviceFormatted;
 
-      // Use the more direct send method without public key in parameters
-      const response = await emailjs.sendForm(
+      console.log("Sending form with EmailJS...");
+      
+      // Send the email using EmailJS
+      const response = await emailjs.send(
         'service_zqh8yoe',        // EmailJS service ID
         'template_8j1i1of',       // EmailJS template ID
-        e.target as HTMLFormElement
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          reply_to: formData.email,
+          phone: formData.phone,
+          service: serviceFormatted,
+          message: formData.message || "No message provided"
+        },
+        'SMFwSQ88VoQKPtpYR'       // EmailJS public key
       );
 
       console.log("EmailJS response:", response);
@@ -333,4 +352,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
