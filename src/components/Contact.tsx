@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, Facebook, Instagram } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
@@ -12,6 +11,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -24,6 +24,13 @@ const Contact = () => {
   });
   
   const [formState, setFormState] = useState('idle');
+  const [emailJSInitialized, setEmailJSInitialized] = useState(false);
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init("YOUR_EMAILJS_USER_ID");
+    setEmailJSInitialized(true);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -34,7 +41,7 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, service: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validate form
@@ -49,8 +56,27 @@ const Contact = () => {
     
     setFormState('submitting');
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        service: formData.service === 'lawn-maintenance' ? 'Lawn Maintenance' :
+                formData.service === 'landscape-design' ? 'Landscape Design' :
+                formData.service === 'irrigation' ? 'Irrigation Systems' : 'Other Services',
+        message: formData.message,
+        reply_to: 'info@cslawncare.ca',
+        to_email: 'cslawncare.ca@gmail.com'
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(
+        'YOUR_EMAILJS_SERVICE_ID', 
+        'YOUR_EMAILJS_TEMPLATE_ID',
+        templateParams
+      );
+
       setFormState('success');
       toast({
         title: "Request received!",
@@ -68,7 +94,15 @@ const Contact = () => {
       
       // Reset form state after a delay
       setTimeout(() => setFormState('idle'), 3000);
-    }, 1500);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setFormState('idle');
+      toast({
+        title: "Message could not be sent",
+        description: "Please try again later or contact us directly by phone.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
