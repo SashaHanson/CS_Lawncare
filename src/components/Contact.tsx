@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, Facebook, Instagram } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -27,13 +26,10 @@ const Contact = () => {
   const [formState, setFormState] = useState('idle');
   const [emailJSInitialized, setEmailJSInitialized] = useState(false);
 
-  // Initialize EmailJS
+  // Initialize EmailJS with public key
   useEffect(() => {
-    // Initialize EmailJS with your public key
     emailjs.init("SMFwSQ88VoQKPtpYR");
     setEmailJSInitialized(true);
-    
-    // Log to confirm initialization
     console.log("EmailJS initialized with public key");
   }, []);
 
@@ -62,54 +58,36 @@ const Contact = () => {
     setFormState('submitting');
     
     try {
-      // Get service name in readable format
+      // Format service name for readability
       const serviceFormatted = 
         formData.service === 'lawn-maintenance' ? 'Lawn Maintenance' :
         formData.service === 'landscape-design' ? 'Landscape Design' :
         formData.service === 'irrigation' ? 'Irrigation Systems' : 'Other Services';
 
-      // Construct a form-like object manually since sendForm expects actual form elements
-      const formElement = e.target as HTMLFormElement;
+      // Log before sending to help diagnose
+      console.log("Attempting to send email with EmailJS");
+      console.log("Service ID:", 'service_zqh8yoe');
+      console.log("Template ID:", 'template_8j1i1of');
       
-      // Make sure form elements have name attributes that match the template variables
-      const nameInput = formElement.querySelector('input[name="name"]') as HTMLInputElement;
-      const emailInput = formElement.querySelector('input[name="email"]') as HTMLInputElement;
-      const phoneInput = formElement.querySelector('input[name="phone"]') as HTMLInputElement;
-      const messageTextarea = formElement.querySelector('textarea[name="message"]') as HTMLTextAreaElement;
+      // Prepare template parameters to exactly match the EmailJS template variables
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        reply_to: formData.email,
+        phone: formData.phone,
+        service: serviceFormatted,
+        message: formData.message || "No message provided",
+        to_name: "CS Lawn Care Team" // Adding this if your template expects it
+      };
       
-      // Set form values to match template variables
-      if (nameInput) nameInput.setAttribute('name', 'from_name');
-      if (emailInput) {
-        emailInput.setAttribute('name', 'from_email');
-        emailInput.setAttribute('name', 'reply_to');
-      }
-      if (messageTextarea) messageTextarea.setAttribute('name', 'message');
+      console.log("Template parameters:", templateParams);
       
-      // Add a hidden field for service since select doesn't work well with EmailJS
-      let serviceInput = formElement.querySelector('input[name="service"]') as HTMLInputElement;
-      if (!serviceInput) {
-        serviceInput = document.createElement('input');
-        serviceInput.type = 'hidden';
-        serviceInput.name = 'service';
-        formElement.appendChild(serviceInput);
-      }
-      serviceInput.value = serviceFormatted;
-
-      console.log("Sending form with EmailJS...");
-      
-      // Send the email using EmailJS
+      // Send email directly using the send method
       const response = await emailjs.send(
         'service_zqh8yoe',        // EmailJS service ID
         'template_8j1i1of',       // EmailJS template ID
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          reply_to: formData.email,
-          phone: formData.phone,
-          service: serviceFormatted,
-          message: formData.message || "No message provided"
-        },
-        'SMFwSQ88VoQKPtpYR'       // EmailJS public key
+        templateParams,
+        'SMFwSQ88VoQKPtpYR'       // EmailJS public key (User ID)
       );
 
       console.log("EmailJS response:", response);
@@ -138,9 +116,11 @@ const Contact = () => {
     } catch (error) {
       console.error('Error sending email:', error);
       setFormState('idle');
+      
+      // More detailed error message to help with troubleshooting
       toast({
         title: "Message could not be sent",
-        description: "Please try again later or contact us directly by phone.",
+        description: "There was an issue with the email service. Please try again later or contact us directly by phone.",
         variant: "destructive",
       });
     }
