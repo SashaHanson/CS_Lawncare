@@ -43,6 +43,10 @@ const Hero = () => {
                 "shadow-lg transform transition-all duration-300",
                 "hover:shadow-xl hover:-translate-y-1"
               )}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Free Consultation
             </a>
@@ -54,6 +58,10 @@ const Hero = () => {
                 "shadow-lg transform transition-all duration-300",
                 "hover:bg-white/20 hover:shadow-xl hover:-translate-y-1"
               )}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Our Services
             </a>
@@ -66,6 +74,10 @@ const Hero = () => {
         href="#about" 
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white/90 flex flex-col items-center animate-bounce"
         aria-label="Scroll down"
+        onClick={(e) => {
+          e.preventDefault();
+          document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+        }}
       >
         <span className="sr-only">Scroll down</span>
         <ArrowDown className="h-6 w-6" />

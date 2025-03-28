@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -25,6 +26,19 @@ const Navbar = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const scrollToSection = (sectionId: string) => {
+    setMobileMenuOpen(false);
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const navItems = [
+    { label: 'Home', id: 'home' },
+    { label: 'About', id: 'about' },
+    { label: 'Services', id: 'services' },
+    { label: 'Testimonials', id: 'testimonials' },
+    { label: 'Contact', id: 'contact' }
+  ];
+
   return (
     <header
       className={cn(
@@ -36,30 +50,42 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <Link 
-          to="/" 
+        <a 
+          href="#home" 
           className="text-green font-serif text-2xl md:text-3xl font-bold tracking-tight"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('home');
+          }}
         >
           CS Lawncare
-        </Link>
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {['Home', 'About', 'Services', 'Testimonials', 'Contact'].map((item) => (
+          {navItems.map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.id}
+              href={`#${item.id}`}
               className={cn(
                 'font-medium tracking-wide transition-colors duration-300',
                 isScrolled ? 'text-foreground hover:text-green' : 'text-foreground/90 hover:text-green-dark'
               )}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(item.id);
+              }}
             >
-              {item}
+              {item.label}
             </a>
           ))}
           <a 
             href="#contact" 
             className="btn-primary"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('contact');
+            }}
           >
             Get a Quote
           </a>
@@ -83,20 +109,26 @@ const Navbar = () => {
         )}
       >
         <div className="flex flex-col py-6 px-6 space-y-4">
-          {['Home', 'About', 'Services', 'Testimonials', 'Contact'].map((item) => (
+          {navItems.map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.id}
+              href={`#${item.id}`}
               className="font-medium py-2 transition-colors duration-300 text-foreground hover:text-green"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(item.id);
+              }}
             >
-              {item}
+              {item.label}
             </a>
           ))}
           <a 
             href="#contact" 
             className="btn-primary text-center mt-4"
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('contact');
+            }}
           >
             Get a Quote
           </a>

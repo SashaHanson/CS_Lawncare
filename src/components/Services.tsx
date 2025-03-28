@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Facebook, Instagram } from 'lucide-react';
 
 // Service data
 const servicesData = [
@@ -30,6 +29,11 @@ const servicesData = [
 
 const Services = () => {
   const [activeService, setActiveService] = useState(servicesData[0].id);
+
+  const scrollToContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section id="services" className="py-24 px-6 md:px-12 bg-cream">
@@ -111,6 +115,7 @@ const Services = () => {
                     <a
                       href="#contact"
                       className="inline-block mt-8 btn-primary bg-green hover:bg-green-dark"
+                      onClick={scrollToContact}
                     >
                       Request Service
                     </a>

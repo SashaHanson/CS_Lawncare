@@ -10,6 +10,11 @@ const Footer = () => {
       behavior: 'smooth',
     });
   };
+  
+  // Function to scroll to section smoothly
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <footer className="bg-green-dark text-white">
@@ -19,9 +24,16 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Company Info */}
             <div className="lg:col-span-1">
-              <Link to="/" className="text-white font-serif text-2xl font-bold tracking-tight">
+              <a 
+                href="#home" 
+                className="text-white font-serif text-2xl font-bold tracking-tight"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('home');
+                }}
+              >
                 CS Lawncare
-              </Link>
+              </a>
               <p className="mt-4 text-white/80 max-w-xs">
                 Professional lawn care and landscaping services delivering beautiful, sustainable outdoor spaces.
               </p>
@@ -56,6 +68,10 @@ const Footer = () => {
                     <a 
                       href={`#${item.toLowerCase()}`}
                       className="text-white/80 hover:text-white transition-colors duration-300 flex items-center"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToSection(item.toLowerCase());
+                      }}
                     >
                       <span className="h-1.5 w-1.5 rounded-full bg-green-light mr-2"></span>
                       {item}
@@ -81,6 +97,10 @@ const Footer = () => {
                     <a 
                       href="#services"
                       className="text-white/80 hover:text-white transition-colors duration-300 flex items-center"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToSection('services');
+                      }}
                     >
                       <span className="h-1.5 w-1.5 rounded-full bg-green-light mr-2"></span>
                       {service}
