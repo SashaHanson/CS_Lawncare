@@ -32,6 +32,9 @@ const Contact = () => {
     // Initialize EmailJS with your public key
     emailjs.init("SMFwSQ88VoQKPtpYR");
     setEmailJSInitialized(true);
+    
+    // Log to confirm initialization
+    console.log("EmailJS initialized with public key");
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -65,25 +68,29 @@ const Contact = () => {
         formData.service === 'landscape-design' ? 'Landscape Design' :
         formData.service === 'irrigation' ? 'Irrigation Systems' : 'Other Services';
 
-      // Prepare template parameters
+      // Prepare template parameters - simplified to match template parameters exactly
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
         service: serviceFormatted,
-        message: formData.message,
+        message: formData.message || "No message provided",
         reply_to: formData.email,
-        to_name: "CS Lawn Care",
       };
 
       console.log("Sending email with params:", templateParams);
+      
+      // Check if EmailJS is initialized
+      if (!emailJSInitialized) {
+        console.warn("EmailJS not initialized yet, initializing now");
+        emailjs.init("SMFwSQ88VoQKPtpYR");
+      }
 
-      // Send email using EmailJS - using the alternative method
-      const response = await emailjs.send(
+      // Use the more direct send method without public key in parameters
+      const response = await emailjs.sendForm(
         'service_zqh8yoe',        // EmailJS service ID
         'template_8j1i1of',       // EmailJS template ID
-        templateParams,
-        'SMFwSQ88VoQKPtpYR'       // EmailJS public key
+        e.target as HTMLFormElement
       );
 
       console.log("EmailJS response:", response);
@@ -107,7 +114,7 @@ const Contact = () => {
         // Reset form state after a delay
         setTimeout(() => setFormState('idle'), 3000);
       } else {
-        throw new Error('Email sending failed');
+        throw new Error(`Email sending failed with status: ${response.status}`);
       }
     } catch (error) {
       console.error('Error sending email:', error);
@@ -326,3 +333,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
