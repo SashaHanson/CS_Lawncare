@@ -1,4 +1,3 @@
-
 import { useState, useCallback, memo } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -15,7 +14,7 @@ const servicesData = [
     id: 2,
     title: 'Landscape Design',
     description: 'Custom landscape design services to transform your outdoor space into a beautiful and functional environment.',
-    image: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86',
+    image: '/lovable-uploads/5d99a9e1-641b-4fde-929c-0bdeaaa87b4c.png',
     features: ['Custom design consultations', 'Plant selection expertise', 'Hardscape integration', '3D visualization', 'Sustainable planning']
   },
   {
