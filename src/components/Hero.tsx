@@ -8,7 +8,6 @@ const Hero = () => {
       id="home" 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/20 z-10"></div>
         <img 
@@ -16,6 +15,8 @@ const Hero = () => {
           alt="Professional lawn mower on green grass" 
           className="w-full h-full object-cover object-center"
           loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
       </div>
 
