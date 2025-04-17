@@ -12,7 +12,7 @@ const About = () => {
               About Us
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
-              Creating Beautiful Landscapes Since 2005
+              Creating Beautiful Landscapes Since 2019
             </h2>
             
             <p className="text-foreground/80 text-lg mb-6 leading-relaxed">
@@ -20,23 +20,23 @@ const About = () => {
             </p>
             
             <p className="text-foreground/80 mb-8 leading-relaxed">
-              Our experienced team of landscape professionals combines horticultural expertise with artistic vision to create custom-designed environments that reflect your unique style and meet your practical needs.
+              Our experienced team of lawncare and landscape professionals combines horticultural expertise with artistic vision to create custom-designed environments that reflect your unique style and meet your practical needs.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div className="flex items-start">
                 <div className="flex-shrink-0 h-12 w-12 rounded-full bg-green/10 flex items-center justify-center text-green mr-4">
-                  <span className="text-green text-xl">18+</span>
+                  <span className="text-green text-xl">7+</span>
                 </div>
                 <div>
                   <h4 className="font-medium text-foreground">Years Experience</h4>
-                  <p className="text-sm text-foreground/70">Trusted service since 2005</p>
+                  <p className="text-sm text-foreground/70">Trusted service since 2019</p>
                 </div>
               </div>
               
               <div className="flex items-start">
                 <div className="flex-shrink-0 h-12 w-12 rounded-full bg-green/10 flex items-center justify-center text-green mr-4">
-                  <span className="text-green text-xl">500+</span>
+                  <span className="text-green text-xl">100+</span>
                 </div>
                 <div>
                   <h4 className="font-medium text-foreground">Happy Clients</h4>
