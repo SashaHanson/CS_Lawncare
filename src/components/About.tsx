@@ -16,11 +16,11 @@ const About = () => {
             </h2>
             
             <p className="text-foreground/80 text-lg mb-6 leading-relaxed">
-              At CS Lawncare, we're passionate about transforming ordinary outdoor spaces into extraordinary landscapes that inspire, impress, and endure.
+              At CS Lawn Care, we're passionate about transforming ordinary outdoor spaces into extraordinary landscapes that inspire, impress, and endure.
             </p>
             
             <p className="text-foreground/80 mb-8 leading-relaxed">
-              Our experienced team of lawncare and landscape professionals combines horticultural expertise with artistic vision to create custom-designed environments that reflect your unique style and meet your practical needs.
+              Our experienced team of lawn care and landscape professionals combines horticultural expertise with artistic vision to create custom-designed environments that reflect your unique style and meet your practical needs.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
