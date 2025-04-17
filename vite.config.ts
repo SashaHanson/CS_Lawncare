@@ -24,14 +24,9 @@ export default defineConfig(({ mode }) => ({
         entryFileNames: 'assets/[name].[hash].js',
       }
     },
-    // Enable minification optimizations
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true
-      }
-    }
+    // Modified minification settings to use 'esbuild' instead of 'terser'
+    minify: 'esbuild',
+    // Remove terser options since we're not using it anymore
   },
   server: {
     host: "::",
