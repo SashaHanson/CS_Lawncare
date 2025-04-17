@@ -58,7 +58,7 @@ const Navbar = () => {
             scrollToSection('home');
           }}
         >
-          CS Lawncare
+          CS Lawn Care
         </a>
 
         {/* Desktop Navigation */}

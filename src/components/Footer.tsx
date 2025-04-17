@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, ArrowUp, Facebook, Instagram } from 'lucide-react';
 
@@ -32,7 +31,7 @@ const Footer = () => {
                   scrollToSection('home');
                 }}
               >
-                CS Lawncare
+                CS Lawn Care
               </a>
               <p className="mt-4 text-white/80 max-w-xs">
                 Professional lawn care and landscaping services delivering beautiful, sustainable outdoor spaces.
@@ -136,7 +135,7 @@ const Footer = () => {
       <div className="border-t border-white/10 px-6 md:px-12 py-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <div className="text-white/70 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} CS Lawncare. All rights reserved.
+            © {new Date().getFullYear()} CS Lawn Care. All rights reserved.
           </div>
           <div className="flex items-center">
             <button 

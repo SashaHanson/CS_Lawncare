@@ -1,5 +1,5 @@
 
-# CS Lawncare
+# CS Lawn Care
 
 ## Project info
 
