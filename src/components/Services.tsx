@@ -1,8 +1,8 @@
 
-import { useState } from 'react';
+import { useState, useCallback, memo } from 'react';
 import { cn } from '@/lib/utils';
 
-// Service data
+// Move data outside component to prevent recreation
 const servicesData = [
   {
     id: 1,
@@ -27,13 +27,84 @@ const servicesData = [
   }
 ];
 
+// Memoized ServiceCard component
+const ServiceCard = memo(({ service, isActive }: { service: typeof servicesData[0], isActive: boolean }) => (
+  <div
+    className={cn(
+      "overflow-hidden transition-all duration-500 ease-in-out",
+      isActive ? "opacity-100 h-auto" : "opacity-0 h-0 absolute"
+    )}
+  >
+    <div className="glass-card rounded-2xl p-6 md:p-8 flex flex-col lg:flex-row gap-8 overflow-hidden">
+      <div className="lg:w-1/2 img-hover-zoom rounded-xl overflow-hidden">
+        <img
+          src={service.image}
+          alt={service.title}
+          className="w-full h-60 lg:h-full object-cover rounded-xl"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div className="lg:w-1/2">
+        <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+        <p className="text-foreground/80 mb-6">{service.description}</p>
+        
+        <h4 className="font-medium text-green mb-3">Service Includes:</h4>
+        <ul className="space-y-2">
+          {service.features.map((feature, index) => (
+            <li key={index} className="flex items-start">
+              <span className="inline-block w-2 h-2 rounded-full bg-green mt-2 mr-3"></span>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+        
+        <a
+          href="#contact"
+          className="inline-block mt-8 btn-primary bg-green hover:bg-green-dark"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          Request Service
+        </a>
+      </div>
+    </div>
+  </div>
+));
+
+// Memoized ServiceButton component
+const ServiceButton = memo(({ service, isActive, onClick }: { 
+  service: typeof servicesData[0], 
+  isActive: boolean, 
+  onClick: () => void 
+}) => (
+  <button
+    className={cn(
+      "text-left p-6 rounded-lg transition-all duration-300 ease-in-out",
+      "border border-green/10 hover:border-green/20",
+      isActive
+        ? "bg-white/80 shadow-md transform -translate-y-1"
+        : "bg-white/40 hover:bg-white/60"
+    )}
+    onClick={onClick}
+  >
+    <h3 className="text-xl font-semibold mb-2 text-foreground">
+      {service.title}
+    </h3>
+    <p className="text-foreground/70">
+      {service.description}
+    </p>
+  </button>
+));
+
 const Services = () => {
   const [activeService, setActiveService] = useState(servicesData[0].id);
 
-  const scrollToContact = (e: React.MouseEvent) => {
-    e.preventDefault();
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const handleServiceClick = useCallback((id: number) => {
+    setActiveService(id);
+  }, []);
 
   return (
     <section id="services" className="py-24 px-6 md:px-12 bg-cream">
@@ -58,24 +129,12 @@ const Services = () => {
           <div className="lg:w-1/3">
             <div className="flex flex-col space-y-4">
               {servicesData.map((service) => (
-                <button
+                <ServiceButton
                   key={service.id}
-                  className={cn(
-                    "text-left p-6 rounded-lg transition-all duration-300 ease-in-out",
-                    "border border-green/10 hover:border-green/20",
-                    activeService === service.id
-                      ? "bg-white/80 shadow-md transform -translate-y-1"
-                      : "bg-white/40 hover:bg-white/60"
-                  )}
-                  onClick={() => setActiveService(service.id)}
-                >
-                  <h3 className="text-xl font-semibold mb-2 text-foreground">
-                    {service.title}
-                  </h3>
-                  <p className="text-foreground/70">
-                    {service.description}
-                  </p>
-                </button>
+                  service={service}
+                  isActive={activeService === service.id}
+                  onClick={() => handleServiceClick(service.id)}
+                />
               ))}
             </div>
           </div>
@@ -83,45 +142,11 @@ const Services = () => {
           {/* Content */}
           <div className="lg:w-2/3">
             {servicesData.map((service) => (
-              <div
+              <ServiceCard
                 key={service.id}
-                className={cn(
-                  "overflow-hidden transition-all duration-500 ease-in-out",
-                  activeService === service.id ? "opacity-100 h-auto" : "opacity-0 h-0 absolute"
-                )}
-              >
-                <div className="glass-card rounded-2xl p-6 md:p-8 flex flex-col lg:flex-row gap-8 overflow-hidden">
-                  <div className="lg:w-1/2 img-hover-zoom rounded-xl overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-60 lg:h-full object-cover rounded-xl"
-                    />
-                  </div>
-                  <div className="lg:w-1/2">
-                    <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                    <p className="text-foreground/80 mb-6">{service.description}</p>
-                    
-                    <h4 className="font-medium text-green mb-3">Service Includes:</h4>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, index) => (
-                        <li key={index} className="flex items-start">
-                          <span className="inline-block w-2 h-2 rounded-full bg-green mt-2 mr-3"></span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    
-                    <a
-                      href="#contact"
-                      className="inline-block mt-8 btn-primary bg-green hover:bg-green-dark"
-                      onClick={scrollToContact}
-                    >
-                      Request Service
-                    </a>
-                  </div>
-                </div>
-              </div>
+                service={service}
+                isActive={activeService === service.id}
+              />
             ))}
           </div>
         </div>
@@ -130,4 +155,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default memo(Services);
