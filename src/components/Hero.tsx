@@ -27,7 +27,7 @@ const Hero = () => {
             Professional Lawn Care Services
           </span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl text-white font-bold mb-6 leading-tight animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Transform Your Outdoor Space Into a{' '}
+            Transform Your Property Into a{' '}
             <span className="text-green-light">Living Masterpiece</span>
           </h1>
           <p className="text-white/90 text-lg md:text-xl mb-10 max-w-2xl animate-fade-in" style={{ animationDelay: "0.4s" }}>
