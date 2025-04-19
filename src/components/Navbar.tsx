@@ -1,5 +1,5 @@
+
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -49,7 +49,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center pl-0 md:pl-2">
         {/* Logo and Title */}
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-3 -mt-16 md:-mt-24 lg:-mt-32">
           <img 
             src="/lovable-uploads/CSLC-icon.png" 
             alt="CS Lawn Care Logo" 
@@ -145,3 +145,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
