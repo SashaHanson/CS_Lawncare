@@ -22,7 +22,7 @@ const servicesData = [
     id: 3,
     title: 'Property Maintenance',
     description: 'Complete property maintenance to keep your residential or commercial space looking professional and well-kept.',
-    image: '/lovable-uploads/f528c8b6-a3d7-4b94-87da-0068cd3826ac.png',
+    image: '/lovable-uploads/property-maintenance.png',
     features: ['Shrub trimming', 'Bed maintenance', 'Mulch installation', 'Weed control', 'Seasonal clean-ups']
   }
 ];
