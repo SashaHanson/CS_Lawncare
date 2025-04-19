@@ -82,7 +82,7 @@ const About = () => {
               </div>
               <div className="img-hover-zoom rounded-2xl overflow-hidden shadow-lg h-64">
                 <img 
-                  src="https://images.unsplash.com/photo-1615729947596-a598e5de0ab3" 
+                  src="/lovable-uploads/lawn-mowing.jpg" 
                   alt="Beautiful lawn" 
                   className="w-full h-full object-cover"
                 />
