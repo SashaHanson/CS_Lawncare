@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -49,17 +48,24 @@ const Navbar = () => {
       )}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <a 
-          href="#home" 
-          className="text-green font-serif text-2xl md:text-3xl font-bold tracking-tight"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection('home');
-          }}
-        >
-          CS Lawn Care
-        </a>
+        {/* Logo and Title */}
+        <div className="flex items-center space-x-3">
+          <img 
+            src="/lovable-uploads/CSLC-icon.png" 
+            alt="CS Lawn Care Logo" 
+            className="h-10 w-10 object-contain"
+          />
+          <a 
+            href="#home" 
+            className="text-green font-serif text-2xl md:text-3xl font-bold tracking-tight"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('home');
+            }}
+          >
+            CS Lawn Care
+          </a>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
