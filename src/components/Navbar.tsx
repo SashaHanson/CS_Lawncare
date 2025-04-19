@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -41,13 +42,13 @@ const Navbar = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 px-6 md:px-12 transition-all duration-300 ease-in-out',
+        'fixed top-0 left-0 right-0 z-50 px-4 md:px-8 transition-all duration-300 ease-in-out',
         isScrolled
           ? 'py-4 bg-white/90 backdrop-blur-md shadow-sm'
           : 'py-6 bg-transparent'
       )}
     >
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
+      <div className="max-w-7xl mx-auto flex justify-between items-center pl-2 md:pl-4">
         {/* Logo and Title */}
         <div className="flex items-center space-x-3">
           <img 
@@ -145,3 +146,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
