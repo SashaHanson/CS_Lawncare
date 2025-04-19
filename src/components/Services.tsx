@@ -8,7 +8,7 @@ const servicesData = [
     id: 1,
     title: 'Lawn Maintenance',
     description: 'Regular lawn maintenance including mowing, edging, trimming, and blowing to keep your lawn looking its best year-round.',
-    image: 'https://images.unsplash.com/photo-1615729947596-a598e5de0ab3',
+    image: '/lovable-uploads/ac506817-c52d-4477-a519-8c0f897d82c2.png', // Updated image path
     features: ['Weekly or bi-weekly service', 'Precision cutting techniques', 'Edge trimming', 'Debris removal and blowing', 'Seasonal adjustments']
   },
   {
