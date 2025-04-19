@@ -1,3 +1,4 @@
+
 import { cn } from '@/lib/utils';
 
 const About = () => {
@@ -60,7 +61,7 @@ const About = () => {
             <div className="space-y-4">
               <div className="img-hover-zoom rounded-2xl overflow-hidden shadow-lg h-64">
                 <img 
-                  src="/lovable-uploads/landscape-design.jpg" 
+                  src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86" 
                   alt="Professional landscaping" 
                   className="w-full h-full object-cover"
                 />
