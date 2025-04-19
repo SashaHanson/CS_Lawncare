@@ -15,7 +15,7 @@ const servicesData = [
     id: 2,
     title: 'Landscape Design',
     description: 'Custom landscape design services to transform your outdoor space into a beautiful and functional environment.',
-    image: '/lovable-uploads/c101b262-a840-46fc-9120-465280c92c5f.jpg',
+    image: '/lovable-uploads/landscape-design.jpg',
     features: ['Custom design consultations', 'Plant selection expertise', 'Hardscape integration', '3D visualization', 'Sustainable planning']
   },
   {
