@@ -43,6 +43,6 @@ export default defineConfig(({ mode }) => ({
   },
   // Add optimizeDeps for faster development
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom']
+    include: ['react', 'react-dom', 'react-router-dom', 'lucide-react']
   },
 }));

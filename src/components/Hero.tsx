@@ -1,4 +1,3 @@
-
 import { ArrowDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -15,7 +14,7 @@ const Hero = () => {
           alt="Professional lawn mower on green grass" 
           className="w-full h-full object-cover object-center"
           loading="eager"
-          fetchPriority="high"
+          fetchpriority="high"
           decoding="async"
         />
       </div>

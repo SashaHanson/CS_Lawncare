@@ -1,5 +1,5 @@
 
-import { useState, useCallback, memo, useEffect } from 'react';
+import { useState, useCallback, memo, useEffect, lazy, Suspense } from 'react';
 import { cn } from '@/lib/utils';
 
 // Move data outside component to prevent recreation
@@ -8,7 +8,7 @@ const servicesData = [
     id: 1,
     title: 'Lawn Maintenance',
     description: 'Regular lawn maintenance including mowing, edging, trimming, and blowing to keep your lawn looking its best year-round.',
-    image: '/lovable-uploads/lawn-mowing.jpg', // Updated image path
+    image: '/lovable-uploads/lawn-mowing.jpg',
     features: ['Weekly or bi-weekly service', 'Precision cutting techniques', 'Edge trimming', 'Debris removal and blowing', 'Seasonal adjustments']
   },
   {
@@ -26,6 +26,20 @@ const servicesData = [
     features: ['Shrub trimming', 'Bed maintenance', 'Mulch installation', 'Weed control', 'Seasonal clean-ups']
   }
 ];
+
+// Optimize image loading with a wrapper component
+const OptimizedImage = memo(({ src, alt, onError }: { src: string, alt: string, onError: () => void }) => {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className="w-full h-60 lg:h-full object-cover rounded-xl"
+      loading="lazy"
+      onError={onError}
+      decoding="async"
+    />
+  );
+});
 
 // Memoized ServiceCard component
 const ServiceCard = memo(({ service, isActive }: { service: typeof servicesData[0], isActive: boolean }) => {
@@ -50,16 +64,10 @@ const ServiceCard = memo(({ service, isActive }: { service: typeof servicesData[
               <p className="text-gray-500">Image not available</p>
             </div>
           ) : (
-            <img
-              src={service.image}
-              alt={service.title}
-              className="w-full h-60 lg:h-full object-cover rounded-xl"
-              loading="lazy"
-              onError={() => {
-                console.error(`Image failed to load: ${service.image}`);
-                setImageError(true);
-              }}
-              decoding="async"
+            <OptimizedImage 
+              src={service.image} 
+              alt={service.title} 
+              onError={() => setImageError(true)} 
             />
           )}
         </div>
