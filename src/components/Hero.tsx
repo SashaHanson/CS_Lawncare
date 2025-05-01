@@ -1,8 +1,20 @@
 
 import { ArrowDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useState, useEffect } from 'react';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 const Hero = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section 
       id="home" 
@@ -21,7 +33,10 @@ const Hero = () => {
       </div>
 
       {/* Content Container */}
-      <div className="container mx-auto px-6 z-10 mt-16">
+      <div className={cn(
+        "container mx-auto px-6 z-10 mt-16 transition-opacity duration-700",
+        isVisible ? "opacity-100" : "opacity-0"
+      )}>
         <div className="max-w-4xl">
           <span className="inline-block text-white/90 font-medium text-lg md:text-xl mb-4 pl-1 animate-fade-in">
             Professional Lawn Care Services
@@ -36,21 +51,34 @@ const Hero = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-fade-in" style={{ animationDelay: "0.6s" }}>
-            <a 
-              href="#contact" 
-              className={cn(
-                "btn-primary text-center",
-                "bg-green hover:bg-green-dark text-white px-8 py-3.5 rounded-md font-medium",
-                "shadow-lg transform transition-all duration-300",
-                "hover:shadow-xl hover:-translate-y-1"
-              )}
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Free Consultation
-            </a>
+            <HoverCard>
+              <HoverCardTrigger asChild>
+                <a 
+                  href="#contact" 
+                  className={cn(
+                    "btn-primary text-center",
+                    "bg-green hover:bg-green-dark text-white px-8 py-3.5 rounded-md font-medium",
+                    "shadow-lg transform transition-all duration-300",
+                    "hover:shadow-xl hover:-translate-y-1"
+                  )}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('contact');
+                  }}
+                >
+                  Free Consultation
+                </a>
+              </HoverCardTrigger>
+              <HoverCardContent className="w-80 p-4">
+                <div className="space-y-2">
+                  <h4 className="text-sm font-semibold">Get a Free Quote</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Receive a personalized lawn care plan with no obligation. Our experts will assess your property's needs.
+                  </p>
+                </div>
+              </HoverCardContent>
+            </HoverCard>
+
             <a 
               href="#services" 
               className={cn(
@@ -61,7 +89,7 @@ const Hero = () => {
               )}
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                scrollToSection('services');
               }}
             >
               Our Services
@@ -77,7 +105,7 @@ const Hero = () => {
         aria-label="Scroll down"
         onClick={(e) => {
           e.preventDefault();
-          document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+          scrollToSection('about');
         }}
       >
         <span className="sr-only">Scroll down</span>
